@@ -39,7 +39,7 @@ public class POST_test extends FrameworkUtility {
     }
     
  	
-	@Test (description="To test the report 2")
+	@Test (description="To test the auth token creation using Post Method")
 	public void post_CreateAuth(){
 		AllureLogger.logToAllure("Checking Report");		
 		RestAssured.baseURI=readConfigurationFile("Base_URI");
@@ -62,7 +62,8 @@ public class POST_test extends FrameworkUtility {
 				.contentType("application/json")
 				.body(jsonObject.toJSONString())
 				.post("/auth");
-		AllureLogger.logToAllure("The response is : \n"+ response.asString());			
+		AllureLogger.logToAllure("The response is : \n"+ response.asString());		
+		
 		
 		
 		//1
