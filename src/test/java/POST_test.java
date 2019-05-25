@@ -63,7 +63,7 @@ public class POST_test extends FrameworkUtility {
 				.body(jsonObject.toJSONString())
 				.post("/auth");
 		AllureLogger.logToAllure("The response is : \n"+ response.asString());		
-		System.out.println("The response to print : \n"+ response.asString());
+		System.out.println("The response to print to console: \n"+ response.asString());
 		
 		
 		//1
