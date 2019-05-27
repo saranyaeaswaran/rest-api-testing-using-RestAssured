@@ -2,20 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-05-24T04:34:37Z" name="Suite" finished-at="2019-05-24T04:34:52Z" duration-ms="14869">
+  <suite started-at="2019-05-27T07:17:40Z" name="Default suite" finished-at="2019-05-27T07:17:46Z" duration-ms="6447">
     <groups>
     </groups>
-    <test started-at="2019-05-24T04:34:37Z" name="Test" finished-at="2019-05-24T04:34:52Z" duration-ms="14869">
+    <test started-at="2019-05-27T07:17:40Z" name="Default test" finished-at="2019-05-27T07:17:46Z" duration-ms="6447">
       <class name="POST_test">
-        <test-method is-config="true" signature="setupResponseSpecBuilder()[pri:0, instance:POST_test@1bd81830]" started-at="2019-05-24T04:34:37Z" name="setupResponseSpecBuilder" finished-at="2019-05-24T04:34:40Z" duration-ms="3208" status="PASS">
+        <test-method is-config="true" signature="setBaseURI()[pri:0, instance:POST_test@32639b12]" started-at="2019-05-27T07:17:38Z" name="setBaseURI" finished-at="2019-05-27T07:17:40Z" duration-ms="2037" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setupResponseSpecBuilder -->
-        <test-method signature="post_CreateAuth()[pri:0, instance:POST_test@1bd81830]" started-at="2019-05-24T04:34:40Z" name="post_CreateAuth" description="To test the report 2" finished-at="2019-05-24T04:34:51Z" duration-ms="10734" status="PASS">
+        </test-method> <!-- setBaseURI -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:POST_test@32639b12]" started-at="2019-05-27T07:17:40Z" name="beforeMethod" finished-at="2019-05-27T07:17:40Z" duration-ms="217" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="post_CreateAuth()[pri:0, instance:POST_test@32639b12]" started-at="2019-05-27T07:17:40Z" name="post_CreateAuth" description="To test the auth token creation using Post Method" finished-at="2019-05-27T07:17:46Z" duration-ms="5848" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- post_CreateAuth -->
       </class> <!-- POST_test -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

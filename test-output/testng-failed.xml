@@ -5,7 +5,7 @@
     <classes>
       <class name="POST_test">
         <methods>
-          <include name="setupResponseSpecBuilder"/>
+          <include name="setBaseURI"/>
           <include name="post_CreateAuth"/>
         </methods>
       </class> <!-- POST_test -->

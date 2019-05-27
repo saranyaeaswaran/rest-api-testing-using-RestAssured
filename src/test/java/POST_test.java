@@ -1,12 +1,10 @@
 
-
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.qameta.allure.Step;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 
 import static io.restassured.RestAssured.given; //import this
@@ -14,6 +12,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import utility.AllureLogger;
+import utility.BaseTest;
 import utility.FrameworkConstants;
 import utility.FrameworkUtility;
 
@@ -23,29 +22,13 @@ import static org.hamcrest.Matchers.hasSize;
 
 import org.json.simple.JSONObject;
 
-
-public class POST_test extends FrameworkUtility {
+public class POST_test extends BaseTest {
 	
-    public static ResponseSpecBuilder builder;
-    public static ResponseSpecification responseSpec;
-	
-    @BeforeClass
-    public static void setupResponseSpecBuilder()
-    {
-        builder = new ResponseSpecBuilder();
-        builder.expectStatusCode(200);
-        responseSpec = builder.build();
-        AllureLogger.logToAllure("Checking Report from before class");
-    }
     
- 	
 	@Test (description="To test the auth token creation using Post Method")
 	public void post_CreateAuth(){
-		AllureLogger.logToAllure("Checking Report");		
-		RestAssured.baseURI=readConfigurationFile("Base_URI");
-		System.out.println(RestAssured.baseURI);
-								
 		
+		AllureLogger.logToAllure("Starting the test for POST method for create authentication");
 		/*******************************************************
 		 * Send a POST request to /auth
 		 * and check that the response has HTTP status code 200
@@ -57,20 +40,24 @@ public class POST_test extends FrameworkUtility {
 		jsonObject.put("username", username);
 		AllureLogger.logToAllure("Username from config file is : \n"+ username);
 		AllureLogger.logToAllure("Password from config file is : \n"+ password);
-		Header acceptHeader = new Header("accept","application/json");
-		Response response = given()
-				.contentType("application/json")
-				.body(jsonObject.toJSONString())
-				.post("/auth");
-		AllureLogger.logToAllure("The response is : \n"+ response.asString());		
-		System.out.println("The response to print to console: \n"+ response.asString());
 		
 		
-		//1
-//		printResponseAsString(response);
+		Response response = given().
+								spec(requestSpec).
+								contentType("application/json").
+								body(jsonObject.toJSONString()).
+							when().
+								post("/auth");
 		
-		//2
-//		printOutputLog(response);
+		//To log the response to report
+		logResponseAsString(response);
+		
+		AllureLogger.logToAllure("Asserting the response if the status code returned is 200");
+		response.then().spec(responseSpec);
+		
+		
+		String token = response.then().extract().path("token");
+		System.out.println(token);
 		
 		//3
 //		assertingSingleElementVlaue(response, "Beverly Hills");
@@ -83,50 +70,4 @@ public class POST_test extends FrameworkUtility {
 		
 
 	}
-
-	/*******************************************************
-	 * Print the response JSON
-	 ******************************************************/
-
-	public void printResponseAsString(Response response) {
-		System.out.println(response.asString());
-		
-	}
-	
-	/*******************************************************
-	 * Print the all output log along with the response json (headers, cookies etc)
-	 ******************************************************/
-	
-	public void printOutputLog(Response response) {
-		response.then().log().all();		
-	}
-	
-	/*******************************************************
-	 * Asserting value of a single element to the given value
-	 ******************************************************/
-	
-	public void assertingSingleElementVlaue(Response response, String cityName) {
-		response.then().assertThat().body("places[0].'place name'",equalTo(cityName));
-		
-	}
-	
-	/*******************************************************
-	 * Asserting if the given value exist in the response
-	 ******************************************************/
-	
-	public void assertingItemValueUsingHasItem(Response response, String string) {
-		
-		response.then().assertThat().body("places.'place name'", hasItem(string));
-	}
-	
-	
-	/*******************************************************
-	 * Asserting if the given value exist in the response using size
-	 ******************************************************/
-	
-	public void assertingItemSizeUsingHasItem(Response response, int size) {
-		
-		response.then().assertThat().body("places.'place name'", hasSize(size));
-	}
-
 }
