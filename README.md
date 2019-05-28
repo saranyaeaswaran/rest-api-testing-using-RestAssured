@@ -1,4 +1,4 @@
-#Rest API testing using Rest-Assured Java Framework
+#Rest API testing using Rest-Assured Java Framework#
 
 - This is repository of basic REST API testing framework
 - The public API used for this example is - https://restful-booker.herokuapp.com
