@@ -1,4 +1,4 @@
-#Rest API testing using Rest-Assured Java Framework#
+#Rest API testing using Rest-Assured Java Framework
 
 - This is repository of basic REST API testing framework
 - The public API used for this example is - https://restful-booker.herokuapp.com
@@ -6,7 +6,7 @@
 - For JSON Parsing in java the library used is - **json-simple** and **Jackson API**
 - Reporting is by **Allure API**
 
-##Below are instructions are how to create Rest API test framework using Rest Assured Java library##
+##Below are instructions are how to create Rest API test framework using Rest Assured Java library
 
 	• Maven Dependency to add,
 		<dependency>
@@ -109,7 +109,7 @@
 				□ When().get("/us/target")
 				□ Then.statusCode(200)
 
-###Deserializing JSON response:###
+###Deserializing JSON response:
 		
 	• Using getters and setters of POJO classes, serialisation and deserialization of JSON objects can be made simple
 		○ To convert a normal java class to POJO => provide the field names, ALT+SHIFT+S, generate getter and setter
