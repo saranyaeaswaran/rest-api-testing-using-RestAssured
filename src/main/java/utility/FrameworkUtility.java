@@ -20,7 +20,7 @@ public abstract class FrameworkUtility {
 	
 	protected static Properties properties;
 
-	public String readConfigurationFile(String key) {
+	public static String readConfigurationFile(String key) {
 		try{
 			properties = new Properties();
 			properties.load(new FileInputStream(FrameworkConstants.CONFIG_FILE_PATH));
@@ -31,7 +31,7 @@ public abstract class FrameworkUtility {
 		return properties.getProperty(key).trim();	
 	}
 	
-	public JSONObject returDefaultPayLoadObject(String filePath) {
+	public static JSONObject returDefaultPayLoadObject(String filePath) {
 		// To get the JSON request from external file			
 		JSONParser parser = new JSONParser();
 		Object obj = null;
@@ -60,6 +60,7 @@ public abstract class FrameworkUtility {
 
 	public void logResponseAsString(Response response) {
 		AllureLogger.logToAllure(response.asString());
+		System.out.println(response.asString());
 		
 	}
 	

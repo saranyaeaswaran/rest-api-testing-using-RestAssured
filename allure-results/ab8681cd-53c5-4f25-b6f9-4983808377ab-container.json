@@ -1,1 +1,0 @@
-{"uuid":"ab8681cd-53c5-4f25-b6f9-4983808377ab","name":"POST_test","children":["e0dd2089-ff1f-4f27-ae33-53cd0d90a522"],"befores":[],"afters":[{"name":"afterClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1558939203705,"stop":1558939203706}],"links":[],"start":1558939202132,"stop":1558939203796}

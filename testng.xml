@@ -3,8 +3,13 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <!-- <class name="com.dxc.TestingProjects.SeleniumTest"/> -->
-      <class name="POST_test"/>
+      <!-- <class name="POST_test"/> -->
+       <class name="GetBooking"/>     
+       <class name="CreateBooking"/> 
+       <class name="UpdateBooking"/> 
+       <class name="PartialUpdateBooking"/>
+       <class name="DeleteBooking"/>         
+        
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

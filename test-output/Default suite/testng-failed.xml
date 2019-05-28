@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="POST_test">
+      <class name="DeleteBooking">
         <methods>
+          <include name="beforeMethod"/>
           <include name="setBaseURI"/>
-          <include name="post_CreateAuth"/>
+          <include name="getBookingIDs"/>
         </methods>
-      </class> <!-- POST_test -->
+      </class> <!-- DeleteBooking -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
