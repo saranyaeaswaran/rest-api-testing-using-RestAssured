@@ -1,4 +1,4 @@
-# Rest API testing using Rest-Assured Java Framework#
+# Rest API testing using Rest-Assured Java Framework
 
 - This is repository of basic REST API testing framework
 - The public API used for this example is - https://restful-booker.herokuapp.com
@@ -23,14 +23,14 @@
 	• Values that can be provided in the given block,
 		○ 
 	• To print the response body as string,
-		`@Test
+		````@Test
 		public void RESTAutomation() {
 			RestAssured.baseURI="http://api.zippopotam.us";
 			RequestSpecification requestSpecification = given();
 			Response response = requestSpecification.when().get("/us/10094");
 			System.out.println(response.asString());
 			System.out.println(response.then().extract().response().asString());
-		}`
+		}```
 	• To specify particular header value when sending the request
 		Header header = new Header("key","value");
 		RequestSpecification requestSpecification = given().header(header);
