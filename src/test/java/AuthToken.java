@@ -26,7 +26,7 @@ public class AuthToken extends BaseTest {
 	
     
 	public static String post_CreateAuth(){
-		
+		////
 		AllureLogger.logToAllure("Starting the test for POST method for create authentication");
 		/*******************************************************
 		 * Send a POST request to /auth
